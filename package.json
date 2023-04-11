@@ -1,6 +1,17 @@
 {
   "name": "ember-preprocess-embedded-templates",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "lib/preprocess-embedded-templates.js",
+  "types": "lib/preprocess-embedded-templates.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel 'lint:!(fix)'",
+    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "prepack": "npm run build",
+    "test": "npm-run-all lint test:*",
+    "test:jest": "jest"
+  }
 }
